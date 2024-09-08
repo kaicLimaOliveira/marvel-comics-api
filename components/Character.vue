@@ -25,9 +25,12 @@ interface CharacterProps {
 }
 
 const props = withDefaults(defineProps<CharacterProps>(), {})
+  const emit = defineEmits<{
+  (event: 'get-comic-data', value: number): void
+}>()
 
-function handleClick(id: string) {
-
+function handleClick(id: number) {
+  emit('get-comic-data', id)
 }
 </script>
 

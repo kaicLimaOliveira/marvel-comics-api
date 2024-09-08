@@ -1,20 +1,31 @@
 <template>
-  <main>
+  <div>
     <form class="search" @submit.prevent="handleSubmit">
       <input
         type="text"
         placeholder="enter character name"
         v-model.trim="state.characterName"
       />
-      <div class="buttons">
-        <button type="submit">Get Character Data</button>
+      <div>
+        <button type="submit" class="button-get-character" :disabled="state.loading">
+          <span>Get Character Data</span>
+          <Loader :is-loading="state.loading" width="20px" />
+        </button>
         <button type="reset" class="reset" @click="handleReset">Reset</button>
       </div>
     </form>
 
-    <Character :characters="state.characters" @click="getComicData" />
-    <Comics :comics="state.comics" />
-  </main>
+    <Character 
+      v-if="!state.comics?.[0] && state.characters?.[0]"
+      :characters="state.characters" 
+      @get-comic-data="getComicData($event)" 
+    />
+    
+    <Comics
+      v-if="state.comics?.[0]" 
+      :comics="state.comics" 
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -51,6 +62,11 @@ const handleSubmit = () => {
 };
 
 async function getCharacterData() {
+  state.loading = true;
+
+  state.characters = [];
+  state.comics = [];
+  
   const timeStamp = new Date().getTime();
   const hash = generateHash(timeStamp);
   const url = `https://gateway.marvel.com:443/v1/public/characters?apikey=${publicKey}&hash=${hash}&ts=${timeStamp}&nameStartsWith=${state.characterName}&limit=100`;
@@ -59,14 +75,15 @@ async function getCharacterData() {
     const response = await fetch(url);
     const { data } = await response.json();
     state.characters = data.results;
-    console.log(state.characters);
   } catch (err) {
     console.log(err, 'Error while getting character data');
   }
+  state.loading = false;
 };
 
-async function getComicData(characterId: string) {
+async function getComicData(characterId: number) {
   window.scrollTo({ top: 0, left: 0 });
+  state.loading = true;
 
   const timeStamp = new Date().getTime();
   const hash = generateHash(timeStamp);
@@ -79,6 +96,7 @@ async function getComicData(characterId: string) {
   } catch (err) {
     console.log('Error while getting comic data');
   }
+  state.loading = false;
 };
 
 const handleReset = () => {
@@ -129,6 +147,13 @@ button {
   &.reset {
     margin-left: 0.25em;
     background-color: white;
+  }
+}
+
+.button-get-character {
+
+  span {
+    margin-right: 10px;
   }
 }
 </style>

@@ -1,75 +1,71 @@
-# Nuxt 3 Minimal Starter
+<h1 align="center">
+  Marvel Comics API
+</h1>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<p align="center">
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias-utilizadas">Tecnologias Utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
-## Setup
+<p align="center">
+  <img alt="marvel-comics-api" src=".github/image.png" width="80%">
+  <img alt="marvel-comics-api" src=".github/mobile.png" width="80%">
+</p>
 
-Make sure to install the dependencies:
+## 💻 Projeto
 
-```bash
-# npm
-npm install
+Marvel Comics API é uma aplicação que consulta a API da Marvel Developer e tem como objetivo o estudo e o trabalho 
+com api de terceiros e também o estudo de Nuxtjs.
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
+## ✨ Tecnologias utilizadas
 
-# bun
-bun install
-```
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-## Development Server
+- [Nuxt.js 3](https://nuxt.com/docs/getting-started/installation)
+- [Typescript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
 
-Start the development server on `http://localhost:3000`:
+## 🚀 Como executar
 
-```bash
-# npm
-npm run dev
+- Você precisa instalar o [Nuxt](https://nuxt.com/docs/getting-started/installation) para executar este projeto.
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
+**Clone o projeto**
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+  git clone https://github.com/kaicLimaOliveira/marvel-comics-api.git
 ```
 
-Locally preview production build:
+**Siga os passo abaixo**
 
 ```bash
-# npm
-npm run preview
+  #Utilize para instalar todas as dependências
+  yarn
 
-# pnpm
-pnpm run preview
+  #Para executar o projeto
+  yarn dev
 
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Configuração cutomizada
+
+Veja [Referência configuração](https://cli.vuejs.org/config/).
+
+## 📄 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<a href="https://kaicLimaOliveira.github.io">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/kaicLimaOliveira" width="100px;" alt="Perfil"/>
+ <br />
+ <sub><b>Kaic de Lima Oliveira</b></sub></a>
+
+Feito por Kaic de Lima Oliveira 👋🏽 Entre em contato!
+
+[![Facebook Badge](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&link=https://www.facebook.com/kaic.oliveira.587)](https://www.facebook.com/kaic.oliveira.587) [![Instagram Badge](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&link=https://www.instagram.com/kaic.lo/)](https://www.instagram.com/kaic.lo)
+[![Outlook Badge](https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white&link=mailto:kaic10@outlook.com)](mailto:kaic10@outlook.com)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaic-de-lima-oliveira-3633041a4/)

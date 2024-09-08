@@ -1,5 +1,5 @@
 export interface MarvelComicData {
-  id: string;
+  id: number;
   title: string;
   thumbnail: {
     path: string;

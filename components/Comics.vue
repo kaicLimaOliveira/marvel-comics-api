@@ -1,21 +1,23 @@
 <template>
   <div class="comics">
-    <a
-      v-for="comic in props.comics"
-      :key="comic.id"
-      class="comicCard"
-      :href="getDetailsUrl(comic)"
-      target="_blank"
-      rel="noreferrer"
-      @click="handleClick(comic.id)"
-      :style="{
-        background: `url(${comic.thumbnail.path}.${comic.thumbnail.extension}) no-repeat center`,
-        backgroundSize: 'cover'
-      }"
-    >
-      <div class="caption">{{ comic.title }}</div>
-      <div class="caption bottom">View Comic Details</div>
-    </a>
+    <TransitionGroup name="list">
+      <a
+        v-for="comic in props.comics"
+        :key="comic.id"
+        class="comicCard"
+        :href="getDetailsUrl(comic)"
+        target="_blank"
+        rel="noreferrer"
+        @click="handleClick(comic.id)"
+        :style="{
+          background: `url(${comic.thumbnail.path}.${comic.thumbnail.extension}) no-repeat center`,
+          backgroundSize: 'cover'
+        }"
+      >
+        <div class="caption">{{ comic.title }}</div>
+        <div class="caption bottom">View Comic Details</div>
+      </a>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -26,15 +28,13 @@ interface ComicsProps {
   comics: MarvelComicData[]
 }
 
-const props = withDefaults(defineProps<ComicsProps>(), {
-  
-})
+const props = withDefaults(defineProps<ComicsProps>(), {})
 
 const getDetailsUrl = (comic: MarvelComicData) => {
   return comic.urls.find((element) => element.type === "detail")?.url;
 };
 
-const handleClick = (id: string) => {
+const handleClick = (id: number) => {
   
 };
 </script>

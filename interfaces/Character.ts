@@ -1,5 +1,5 @@
 export interface MarvelCharacterData  {
-  id: string;
+  id: number;
   name: string;
   thumbnail: {
     path: string;
