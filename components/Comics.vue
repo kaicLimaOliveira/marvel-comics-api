@@ -8,7 +8,6 @@
         :href="getDetailsUrl(comic)"
         target="_blank"
         rel="noreferrer"
-        @click="handleClick(comic.id)"
         :style="{
           background: `url(${comic.thumbnail.path}.${comic.thumbnail.extension}) no-repeat center`,
           backgroundSize: 'cover'
@@ -32,10 +31,6 @@ const props = withDefaults(defineProps<ComicsProps>(), {})
 
 const getDetailsUrl = (comic: MarvelComicData) => {
   return comic.urls.find((element) => element.type === "detail")?.url;
-};
-
-const handleClick = (id: number) => {
-  
 };
 </script>
 

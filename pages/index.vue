@@ -54,8 +54,7 @@ const state: State = reactive({
   loading: false,
 })
 
-const privateKey = import.meta.env.VITE_MARVEL_PRIVATE_KEY;
-const publicKey = import.meta.env.VITE_MARVEL_PUBLIC_KEY;
+const config = useRuntimeConfig();
 
 const handleSubmit = () => {
   getCharacterData();
@@ -63,13 +62,12 @@ const handleSubmit = () => {
 
 async function getCharacterData() {
   state.loading = true;
-
   state.characters = [];
   state.comics = [];
   
   const timeStamp = new Date().getTime();
   const hash = generateHash(timeStamp);
-  const url = `https://gateway.marvel.com:443/v1/public/characters?apikey=${publicKey}&hash=${hash}&ts=${timeStamp}&nameStartsWith=${state.characterName}&limit=100`;
+  const url = `https://gateway.marvel.com:443/v1/public/characters?apikey=${config.public.marvelPublicKey}&hash=${hash}&ts=${timeStamp}&nameStartsWith=${state.characterName}&limit=100`;
 
   try {
     const response = await fetch(url);
@@ -84,10 +82,11 @@ async function getCharacterData() {
 async function getComicData(characterId: number) {
   window.scrollTo({ top: 0, left: 0 });
   state.loading = true;
+  
 
   const timeStamp = new Date().getTime();
   const hash = generateHash(timeStamp);
-  const url = `https://gateway.marvel.com:443/v1/public/characters/${characterId}/comics?apikey=${publicKey}&hash=${hash}&ts=${timeStamp}`;
+  const url = `https://gateway.marvel.com:443/v1/public/characters/${characterId}/comics?apikey=${config.public.marvelPublicKey}&hash=${hash}&ts=${timeStamp}`;
 
   try {
     const response = await fetch(url);
@@ -106,7 +105,7 @@ const handleReset = () => {
 };
 
 const generateHash = (timeStamp: number) => {
-  return md5(timeStamp + privateKey + publicKey);
+  return md5(timeStamp + config.public.marvelPrivateKey + config.public.marvelPublicKey);
 };
 </script>
 
