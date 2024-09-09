@@ -83,7 +83,6 @@ async function getCharacterData() {
 async function getComicData(characterId: number) {
   window.scrollTo({ top: 0, left: 0 });
   state.loading = true;
-  
 
   const timeStamp = new Date().getTime();
   const hash = generateHash(timeStamp);

@@ -11,7 +11,7 @@
 
 <p align="center">
   <img alt="marvel-comics-api" src=".github/image.png" width="80%">
-  <img alt="marvel-comics-api" src=".github/mobile.png" width="80%">
+  <img alt="marvel-comics-api" src=".github/image2.png" width="80%">
 </p>
 
 ## 💻 Projeto
