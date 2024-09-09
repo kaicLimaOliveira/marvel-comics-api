@@ -62,6 +62,7 @@ const handleSubmit = () => {
 
 async function getCharacterData() {
   state.loading = true;
+
   state.characters = [];
   state.comics = [];
   
@@ -105,7 +106,7 @@ const handleReset = () => {
 };
 
 const generateHash = (timeStamp: number) => {
-  return md5(timeStamp + config.marvelPrivateKey + config.public.marvelPublicKey);
+  return md5(timeStamp + config.public.marvelPrivateKey + config.public.marvelPublicKey);
 };
 </script>
 

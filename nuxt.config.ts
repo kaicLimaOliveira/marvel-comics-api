@@ -8,8 +8,8 @@ export default defineNuxtConfig({
     '~/assets/css/global.css',
   ],
   runtimeConfig: {
-    marvelPrivateKey: process.env.NUXT_MARVEL_PRIVATE_KEY,
     public: {
+      marvelPrivateKey: process.env.NUXT_MARVEL_PRIVATE_KEY,
       marvelPublicKey: process.env.NUXT_MARVEL_PUBLIC_KEY,
     },
   }
